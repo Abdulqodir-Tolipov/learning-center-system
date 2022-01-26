@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="/css/public/header.css">
+
+<header class="site-header">
+	<div class="left">
+		<nav>
+			<ul>
+				<li>
+					<a href="/">Home</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+	<div class="center">
+		<nav>
+			<ul>
+				<li class="search">
+					<% if (input ) {%>
+						<form action="/students/search" method="GET">
+							<input type="search" placeholder="search..." required name="studentSearch" maxlength="35">
+						</form>
+					<% } %>
+				</li>
+				<% for (let i in links) { %>
+					<li><a href="<%= links[i].link %>"><%= links[i].text %></a></li>
+				<% } %>
+			</ul>
+		</nav>
+	</div>
+	<div class="right">
+		<nav>
+			<ul>
+				<% if (isLoggedIn) {%>
+					<li><a href="/logout">Log out</a></li>
+				<% } else { %>
+					<li><a href="/login">Log in</a></li>
+				<% } %>
+			</ul>
+		</nav>
+	</div>
+</header>
